@@ -1,5 +1,5 @@
 import React from "react";
 
-const SeasonsDisplay = () => {
-  return <div>Season Display</div>;
+const SeasonsDisplay = (props) => {
+  return <div>{props.late}</div>;
 };
