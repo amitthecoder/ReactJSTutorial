@@ -1,5 +1,4 @@
 import React from "react";
-git 
 class ImageCard extends React.Component {
   constructor(props) {
     super(props);
