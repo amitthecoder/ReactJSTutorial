@@ -1,20 +1,21 @@
 import jsonPlaceholderApi from "../apis/JsonPlaceholder";
-// import _ from "lodash";
+import _ from "lodash";
 
-// export const fetchPostAndUser = () => {
-//   return async (dispatch, getState) => {
-//     await dispatch(fetchPost());
+export const fetchPostAndUser = () => {
+  return async (dispatch, getState) => {
+    await dispatch(fetchPost());
 
-//     const userIds = _.uniq(_.map(getState().posts, "UserId"));
-//     userIds.forEach((userId) => dispatch(fetchUser(userId)));
+    //Without chain way
+    // const userIds = _.uniq(_.map(getState().posts, "UserId"));
+    // userIds.forEach((userId) => dispatch(fetchUser(userId)));
 
-//     _.chain(getState().posts)
-//       .map("UserId")
-//       .uniq()
-//       .forEach((userId) => dispatch(fetchUser(userId)))
-//       .value();
-//   };
-// };
+    _.chain(getState().posts)
+      .map("userId")
+      .uniq()
+      .forEach((userId) => dispatch(fetchUser(userId)))
+      .value();
+  };
+};
 
 export const fetchPost = () => {
   return async (dispatch, getState) => {
